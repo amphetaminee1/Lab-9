@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Отзовик</title>
+    <style>
+        body { background: lightgrey; font-family: sans-serif; }
+        .box { background: white; width: 400px; padding: 20px; margin: auto; }
+        .review { border: 1px solid black; margin-top: 10px; padding: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Отзывы</h1>
+
+    <form method="POST">
+        <p>Текст отзыва:</p>
+        <textarea name="text" required></textarea>
+        <p>Оценка (1-5):</p>
+        <input type="number" name="rate" min="1" max="5">
+        <br><br>
+        <input type="submit" value="Добавить отзыв">
+    </form>
+
+    <hr>
+
+    <h2>Список всех отзывов:</h2>
+    {% for r in reviews %}
+        <div class="review">
+            <b>Текст:</b> {{ r.text }} <br>
+            <b>Оценка:</b> {{ r.rate }}
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
